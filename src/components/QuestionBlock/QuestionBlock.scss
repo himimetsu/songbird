@@ -1,0 +1,67 @@
+.player-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: #2c2c2c;
+  border: 2px solid #323232;
+  box-sizing: border-box;
+
+  .player-wrapper__photo {
+    margin-right: 20px;
+
+    .player-wrapper__img {
+      height: 155px;
+      width: 200px;
+      border-radius: 10px;
+    }
+  }
+
+  .player-wrapper__content {
+    height: 155px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    color: white;
+
+    .content-info__name {
+      width: 100%;
+      font-size: 40px;
+    }
+
+    .content-info__latin {
+      width: 100%;
+      font-size: 30px;
+    }
+
+    .content-info__audioplayer {
+      width: 100%;
+
+      .react-audio-player {
+        width: 100%;
+
+        &::-webkit-media-controls-enclosure {
+          // background-color: #2c2c2c;
+        }
+
+        &::-webkit-media-controls-play-button {
+          // background-color: red;
+
+          &.pause {
+            background-color: blue;
+          }
+        }
+      }
+    }
+  }
+
+  .player-wrapper__description {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+    color: white;
+  }
+}
