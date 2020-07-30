@@ -1,0 +1,19 @@
+{
+  "name": "songbird",
+  "version": "1.0.0",
+  "description": "songbird-task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himimetsu/songbird.git"
+  },
+  "author": "Ivanov Vladislav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/himimetsu/songbird/issues"
+  },
+  "homepage": "https://github.com/himimetsu/songbird#readme"
+}
