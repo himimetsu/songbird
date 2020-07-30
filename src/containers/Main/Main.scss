@@ -1,0 +1,28 @@
+.site-main {
+  display: flex;
+  flex-wrap: wrap;
+
+  .site-main__issue {
+    width: 100%;
+  }
+
+  .site-main__answers {
+    width: 49%;
+  }
+
+  .site-main__description {
+    width: 49%;
+    margin-left: auto;
+  }
+
+  .next-btn {
+    margin-top: 5px;
+    padding: 5px 0;
+    background-color: #008a66;
+    color: white;
+    font-size: 18px;
+    border-width: 0;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}
