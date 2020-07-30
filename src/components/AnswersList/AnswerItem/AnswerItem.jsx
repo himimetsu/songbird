@@ -6,7 +6,7 @@ import { SettingsContext } from '../../../context/SettingsContext';
 import './AnswerItem.scss';
 
 const AnswerItem = ({ name, id }) => {
-  const { wrong, currentId, isRight, count, changeWrong, changeIsRight, score, changeScore } = useContext(GameContext);
+  const { wrong, currentId, isRight, changeWrong, changeIsRight, score, changeScore, rightAnswers, changeRightAnswers } = useContext(GameContext);
   const { currentSection, status, changeSelectedBird } = useContext(MainContext);
   const { playSoundIndication } = useContext(SettingsContext);
 
@@ -22,9 +22,7 @@ const AnswerItem = ({ name, id }) => {
           changeWrong(copyWrong);
           playSoundIndication(false);
         } else {
-          if (score + 5 - wrong.length === 30 || count === 5 && isRight) {
-            console.log('end game');
-          }
+          changeRightAnswers(rightAnswers + 1);
           changeScore(score + 5 - wrong.length);
           changeIsRight(true);
           playSoundIndication(true);
