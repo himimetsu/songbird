@@ -18,6 +18,8 @@ const Header = () => {
           Score: 123
         </div>
       </div>
+
+      <Navbar element='site-header' block='site-nav' navbarItems={navbarItems} />
     </header>
   );
 };
