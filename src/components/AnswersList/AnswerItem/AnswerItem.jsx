@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { GameContext } from '../../../context/GameContext';
 import { birdsData } from '../../../consts/birdsData';
+import { GameContext } from '../../../context/GameContext';
 import { MainContext } from '../../../context/MainContext';
+import { SettingsContext } from '../../../context/SettingsContext';
 import './AnswerItem.scss';
 
 const AnswerItem = ({ name, id }) => {
   const { wrong, currentId, isRight, count, changeWrong, changeIsRight, score, changeScore } = useContext(GameContext);
   const { currentSection, status, changeSelectedBird } = useContext(MainContext);
+  const { playSoundIndication } = useContext(SettingsContext);
 
   const answerItemHandler = () => {
     const currentSelectedBird = birdsData[currentSection][id];
@@ -18,12 +20,14 @@ const AnswerItem = ({ name, id }) => {
           const copyWrong = wrong.slice();
           copyWrong.push(id);
           changeWrong(copyWrong);
+          playSoundIndication(false);
         } else {
           if (score + 5 - wrong.length === 30 || count === 5 && isRight) {
             console.log('end game');
           }
           changeScore(score + 5 - wrong.length);
           changeIsRight(true);
+          playSoundIndication(true);
         }
       }
     }
