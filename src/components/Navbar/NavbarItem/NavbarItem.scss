@@ -1,0 +1,32 @@
+.nav-bar__link {
+  width: 100%;
+  padding: 10px 0;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.5s linear;
+  font-weight: 600;
+
+  &:hover {
+    transition: background 0.5s ease;
+    background-color: #00bd8d;
+    border-radius: 10px;
+  }
+}
+
+.nav-bar__link--active {
+  border-radius: 10px;
+  background-color: #00bd8d;
+}
+
+.nav-bar__link--disable {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.hide {
+  display: none;
+}
