@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/images/logo.png';
 import { Navbar } from '../../components';
 import { navbarItems } from '../../consts/navbarItems';
+import { GameContext } from '../../context/GameContext';
 import './Header.scss';
 
 const Header = () => {
+  const { score } = useContext(GameContext);
+
   return (
     <header className='site-header'>
       <div className='site-header__title site-info'>
@@ -15,7 +18,7 @@ const Header = () => {
         </div>
 
         <div className='site-info__score'>
-          Score: 123
+          Score: {score}
         </div>
       </div>
 
