@@ -1,14 +1,17 @@
 import React from 'react';
 import Layout from './hoc/Layout/Layout';
 import { Header, Main, Footer } from './containers';
+import MainApi from './context/MainContext/MainApi';
 
 const App = () => {
   return (
-    <Layout>
-      <Header/>
-      <Main />
-      <Footer />
-    </Layout>
+    <MainApi>
+      <Layout>
+        <Header />
+        <Main />
+        <Footer />
+      </Layout>
+    </MainApi>
   );
 };
 
