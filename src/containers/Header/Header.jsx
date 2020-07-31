@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.webp';
 import { Navbar } from '../../components';
 import { navbarItems } from '../../consts/navbarItems';
 import { GameContext } from '../../context/GameContext';
