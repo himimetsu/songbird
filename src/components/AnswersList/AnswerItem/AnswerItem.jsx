@@ -39,7 +39,6 @@ const AnswerItem = ({ name, id }) => {
       onClick={() => answerItemHandler(id)}
       data-id={id}
       data-wrong={wrong.includes(id) ? 'true' : id === currentId && isRight ? 'false' : 'default'}
-      style={{ order: id }}
     >
       <span>
         {name}
