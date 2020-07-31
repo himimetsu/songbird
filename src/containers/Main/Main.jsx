@@ -3,30 +3,38 @@ import { QuestionBlock, AnswersList } from '../../components';
 import { Button } from '../../UI';
 import { GameContext } from '../../context/GameContext';
 import { MainContext } from '../../context/MainContext';
+import { navbarItems } from '../../consts/navbarItems';
+import { getRandomInRange } from '../../utils/getRandomInRange';
 import './Main.scss';
 
 const Main = () => {
-  const { status, changeStatus, currentBirds, changeSelectedBird } = useContext(MainContext);
+  const { status, changeStatus, changeSelectedBird, changeCurrentSection } = useContext(MainContext);
   const { count, isRight, changeCount, changeCurrentId, changeWrong, changeIsRight } = useContext(GameContext);
+
+  const startGame = () => {
+    changeCurrentSection('migratory');
+    changeStatus('game');
+    changeCurrentId(getRandomInRange(0, 5));
+  };
+
+  const goToNextLevel = () => {
+    if (isRight) {
+      changeCurrentSection(navbarItems[count + 1].section);
+      changeCurrentId(getRandomInRange(0, 5));
+      changeCount(count + 1);
+      changeWrong([]);
+      changeIsRight(false);
+      changeSelectedBird({});
+    }
+  };
 
   const controlGame = () => {
     switch (status) {
       case 'warmup':
-        changeStatus('game');
-        console.log(currentBirds[count].name, currentBirds[count].id);
-        changeCurrentId(currentBirds[count].id);
+        startGame();
         break;
       case 'game':
-        {
-          if (isRight) {
-            console.log(currentBirds[count + 1].name, currentBirds[count + 1].id);
-            changeCurrentId(currentBirds[count + 1].id);
-            changeCount(count + 1);
-            changeWrong([]);
-            changeIsRight(false);
-            changeSelectedBird({});
-          }
-        };
+        goToNextLevel();
         break;
       case 'finish':
         break;
@@ -41,7 +49,11 @@ const Main = () => {
       <Button
         classbtn='game-btn'
         type='button'
-        text={status === 'game' ? 'Next Level' : 'Start game'}
+        text={status === 'game'
+          ? 'Next Level'
+          : 'Start game'
+        }
+        condition={status === 'game' ? !isRight : false}
         onClick={() => controlGame()}
       />
     </main>
