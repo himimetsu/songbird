@@ -17,15 +17,17 @@ const AnswerItem = ({ name, id }) => {
     if (status === 'game') {
       if (!isRight) {
         if (id !== currentId) {
-          const copyWrong = wrong.slice();
-          copyWrong.push(id);
-          changeWrong(copyWrong);
-          playSoundIndication(false);
+          if (!wrong.includes(id)) {
+            const copyWrong = wrong.slice();
+            copyWrong.push(id);
+            changeWrong(copyWrong);
+            playSoundIndication(false);
+          }
         } else {
-          changeRightAnswers(rightAnswers + 1);
           changeScore(score + 5 - wrong.length);
           changeIsRight(true);
           playSoundIndication(true);
+          changeRightAnswers(rightAnswers + 1);
         }
       }
     }
