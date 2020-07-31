@@ -29,8 +29,6 @@
   }
 
   &[data-wrong=true] {
-    color: red;
-
     span {
       &::before {
         background-color: red;
@@ -39,8 +37,6 @@
   }
 
   &[data-wrong=false] {
-    color: green;
-
     span {
       &::before {
         background-color: green;
