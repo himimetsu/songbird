@@ -1,0 +1,40 @@
+.audio-player {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  color: white;
+
+  .rhap_main {
+    flex-wrap: wrap;
+  }
+
+  .rhap_progress-section {
+    min-width: 165px;
+  }
+
+  .rhap_controls-section {
+    min-width: 130px;
+  }
+
+  .rhap_volume-controls {
+    justify-content: center;
+  }
+
+  .rhap_current-time {
+    margin: 0 5px;
+  }
+
+  .rhap_container {
+    background-color: #474B4F;
+    box-shadow: none;
+  }
+
+  .rhap_additional-controls {
+    display: none;
+  }
+
+  [data-type=description] {
+
+  }
+}
