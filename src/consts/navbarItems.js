@@ -5,23 +5,23 @@ export const navbarItems = [
     id: 1,
   },
   {
-    name: 'Воробьиные',
-    section: 'sparrow',
+    name: 'Хищные птицы',
+    section: 'predatory',
     id: 2,
   },
   {
-    name: 'Лесные птицы',
-    section: 'forest',
+    name: 'Зимующие птицы',
+    section: 'wintering',
     id: 3,
   },
   {
-    name: 'Певчие птицы',
-    section: 'songbirds',
+    name: 'Домашние птицы',
+    section: 'domestic',
     id: 4,
   },
   {
-    name: 'Хищные птицы',
-    section: 'predatory',
+    name: 'Воробьиные',
+    section: 'sparrow',
     id: 5,
   },
   {
