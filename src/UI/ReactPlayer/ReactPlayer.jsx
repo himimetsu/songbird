@@ -4,7 +4,7 @@ import 'react-h5-audio-player/lib/styles.css';
 import { GameContext } from '../../context/GameContext';
 import './ReactPlayer.scss';
 
-const ReactPlayer = ({ type, selectedBird, status, currentSection, currentId, birdsData, forcedPause }) => {
+const ReactPlayer = ({ type, selectedBird, currentSection, currentId, birdsData, forcedPause }) => {
   const { changeForcedPause } = useContext(GameContext);
   const refPlayer = useRef();
 
