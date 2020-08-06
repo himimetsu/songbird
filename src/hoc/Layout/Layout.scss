@@ -1,10 +1,13 @@
 .layout {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
-  background-color: #1c1c1c;
+  background-color: #222629;
 
   .container {
     max-width: 1400px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     padding: 0 40px;
   }
