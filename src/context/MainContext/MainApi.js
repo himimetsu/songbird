@@ -1,40 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { birdsData } from '../../consts/birdsData';
+import { data } from '../../consts/data';
 import { MainContext } from './index';
 
 const MainApi = ({ children }) => {
-  const [theme, setTheme] = useState('dark');
-  const [showFooter, setShowFooter] = useState(false);
-  const [status, setStatus] = useState('warmup');
-  const [currentSection, setCurrentSection] = useState('forest');
-  const [currentBirds, setCurrentBirds] = useState(birdsData.forest);
-  const [selectedBird, setSelectedBird] = useState({});
+  const [showResults, setResults] = useState(false);
+  const [status, setStatus] = useState('game');
+  const [currentSection, setCurrentSection] = useState('migratory');
+  const [currentBirds, setCurrentBirds] = useState(data.migratory);
+  const [selectedBird, setSelectedBird] = useState();
 
-  const changeTheme = (value) => setTheme(value);
-  const changeShowFooter = (value) => setShowFooter(value);
   const changeStatus = (value) => setStatus(value);
   const changeCurrentSection = (value) => setCurrentSection(value);
   const changeSelectedBird = (value) => setSelectedBird(value);
+  const toggleShowResults = (value) => setResults(value);
 
   const updateCurrentBirds = () => {
     switch (currentSection) {
-      case 'forest':
-        setCurrentBirds(birdsData.forest);
-        break;
-      case 'marine':
-        setCurrentBirds(birdsData.marine);
+      case 'migratory':
+        setCurrentBirds(data.migratory);
         break;
       case 'predatory':
-        setCurrentBirds(birdsData.predatory);
+        setCurrentBirds(data.predatory);
+        break;
+      case 'wintering':
+        setCurrentBirds(data.wintering);
+        break;
+      case 'domestic':
+        setCurrentBirds(data.domestic);
         break;
       case 'sparrow':
-        setCurrentBirds(birdsData.sparrow);
+        setCurrentBirds(data.sparrow);
         break;
-      case 'migratory':
-        setCurrentBirds(birdsData.migratory);
-        break;
-      case 'songbirds':
-        setCurrentBirds(birdsData.songbirds);
+      case 'marine':
+        setCurrentBirds(data.marine);
         break;
     }
   };
@@ -42,7 +40,7 @@ const MainApi = ({ children }) => {
   useEffect(() => updateCurrentBirds(), [currentSection]);
 
   return (
-    <MainContext.Provider value={{ theme, showFooter, changeTheme, changeShowFooter, status, changeStatus, currentSection, changeCurrentSection, currentBirds, selectedBird, changeSelectedBird }}>
+    <MainContext.Provider value={{ status, changeStatus, currentSection, changeCurrentSection, currentBirds, selectedBird, changeSelectedBird, showResults, toggleShowResults }}>
       {children}
     </MainContext.Provider>
   );
