@@ -3,6 +3,7 @@ import { Button } from '../../UI';
 import { MainContext } from '../../context/MainContext';
 import { getRandomInRange } from '../../utils/getRandomInRange';
 import { GameContext } from '../../context/GameContext';
+import resultsImage from '../../assets/images/back.jpg';
 import './Results.scss';
 
 const Results = ({ score }) => {
@@ -25,10 +26,18 @@ const Results = ({ score }) => {
     <div className='results-modal'>
       <div className='results-modal__title'>Поздравляем!</div>
       <div className='results-modal__description'>
+
         {score < 30
-          ? `Вы прошли викторину и набрали ${score} из 30 возможных баллов`
-          : 'Вы набрали максимум баллов, ваше призвание - ОРНИТОЛОГ!'
+          ? (<div>Вы прошли викторину и набрали {score} из 30 возможных баллов</div>)
+          : (<div>Вы набрали максимум баллов, вам явно интересны птицы! <br/> Чирики приняли вас в птичью банду!</div>)
         }
+
+        {score === 30 &&
+          <div className='results-modal__image'>
+            <img src={resultsImage} alt="background results" />
+          </div>
+        }
+
       </div>
       <div className='results-modal__button'>
         <Button
