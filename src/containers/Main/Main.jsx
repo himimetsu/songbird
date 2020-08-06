@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { QuestionBlock, AnswersList } from '../../components';
-import { Button } from '../../UI';
+import { QuestionBlock, AnswersList, Results } from '../../components';
+import { Button, DefaultText } from '../../UI';
 import { GameContext } from '../../context/GameContext';
 import { MainContext } from '../../context/MainContext';
 import { navbarItems } from '../../consts/navbarItems';
@@ -8,54 +8,40 @@ import { getRandomInRange } from '../../utils/getRandomInRange';
 import './Main.scss';
 
 const Main = () => {
-  const { status, changeStatus, changeSelectedBird, changeCurrentSection } = useContext(MainContext);
-  const { count, isRight, changeCount, changeCurrentId, changeWrong, changeIsRight } = useContext(GameContext);
-
-  const startGame = () => {
-    changeCurrentSection('migratory');
-    changeStatus('game');
-    changeCurrentId(getRandomInRange(0, 5));
-  };
-
-  const goToNextLevel = () => {
-    if (isRight) {
-      changeCurrentSection(navbarItems[count + 1].section);
-      changeCurrentId(getRandomInRange(0, 5));
-      changeCount(count + 1);
-      changeWrong([]);
-      changeIsRight(false);
-      changeSelectedBird({});
-    }
-  };
+  const { status, changeStatus, changeSelectedBird, changeCurrentSection, selectedBird } = useContext(MainContext);
+  const { count, isRight, changeCount, changeCurrentId, changeWrong, changeIsRight, rightAnswers, score } = useContext(GameContext);
 
   const controlGame = () => {
-    switch (status) {
-      case 'warmup':
-        startGame();
-        break;
-      case 'game':
-        goToNextLevel();
-        break;
-      case 'finish':
-        break;
+    if (rightAnswers === 6) {
+      changeStatus('finish');
+    } else {
+      if (isRight) {
+        changeCurrentSection(navbarItems[count + 1].section);
+        changeCurrentId(getRandomInRange(0, 5));
+        changeCount(count + 1);
+        changeWrong([]);
+        changeIsRight(false);
+        changeSelectedBird();
+      }
     }
   };
 
   return (
     <main className='site-main'>
-      <QuestionBlock type='issue' element='site-main__issue' />
-      <AnswersList element='site-main__answers' />
-      <QuestionBlock type='description' element='site-main__description' />
-      <Button
-        classbtn='game-btn'
-        type='button'
-        text={status === 'game'
-          ? 'Next Level'
-          : 'Start game'
-        }
-        condition={status === 'game' ? !isRight : false}
-        onClick={() => controlGame()}
-      />
+      {status !== 'finish' && <QuestionBlock type='issue' element='site-main__issue' />}
+      {status !== 'finish' && <AnswersList element='site-main__answers' />}
+      {status !== 'finish' && selectedBird && <QuestionBlock type='description' element='site-main__description' />}
+      {status !== 'finish' && !selectedBird && <DefaultText />}
+      {status !== 'finish' &&
+        <Button
+          classbtn='game-btn'
+          type='button'
+          text={rightAnswers === 6 ? 'Finish' : 'Next Level'}
+          condition={status === 'game' ? !isRight : false}
+          onClick={() => controlGame()}
+        />
+      }
+      {status === 'finish' && <Results score={score} />}
     </main>
   );
 };
