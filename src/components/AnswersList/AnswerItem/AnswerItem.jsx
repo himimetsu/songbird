@@ -1,17 +1,23 @@
 import React, { useContext } from 'react';
-import { birdsData } from '../../../consts/birdsData';
+import { data } from '../../../consts/data';
 import { GameContext } from '../../../context/GameContext';
 import { MainContext } from '../../../context/MainContext';
-import { SettingsContext } from '../../../context/SettingsContext';
+import correctAudio from '../../../assets/audio/correct.mp3';
+import errorAudio from '../../../assets/audio/error.mp3';
 import './AnswerItem.scss';
 
 const AnswerItem = ({ name, id }) => {
-  const { wrong, currentId, isRight, changeWrong, changeIsRight, score, changeScore, rightAnswers, changeRightAnswers } = useContext(GameContext);
+  const { wrong, currentId, isRight, changeWrong, changeIsRight, score, changeScore, rightAnswers, changeRightAnswers, changeForcedPause } = useContext(GameContext);
   const { currentSection, status, changeSelectedBird } = useContext(MainContext);
-  const { playSoundIndication } = useContext(SettingsContext);
+
+  const playSoundIndication = (result) => {
+    const audio = new Audio();
+    result ? audio.src = correctAudio : audio.src = errorAudio;
+    audio.play();
+  };
 
   const answerItemHandler = () => {
-    const currentSelectedBird = birdsData[currentSection][id];
+    const currentSelectedBird = data[currentSection][id];
     changeSelectedBird(currentSelectedBird);
 
     if (status === 'game') {
@@ -24,6 +30,7 @@ const AnswerItem = ({ name, id }) => {
             playSoundIndication(false);
           }
         } else {
+          changeForcedPause(true);
           changeScore(score + 5 - wrong.length);
           changeIsRight(true);
           playSoundIndication(true);
