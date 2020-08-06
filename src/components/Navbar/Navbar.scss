@@ -1,6 +1,7 @@
 .nav-bar {
   width: 100%;
   display: flex;
-  background-color: #008a66;
+  flex-wrap: wrap;
   border-radius: 10px;
+  border: 2px solid whitesmoke;
 }
