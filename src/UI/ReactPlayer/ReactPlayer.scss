@@ -5,6 +5,18 @@
   flex-wrap: nowrap;
   color: white;
 
+  .rhap_progress-filled {
+    background: #006e5f;
+  }
+
+  .rhap_button-clear {
+    svg {
+      path {
+        fill: #86C232;
+      }
+    }
+  }
+
   .rhap_main {
     flex-wrap: wrap;
   }
