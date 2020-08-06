@@ -1,7 +1,7 @@
 .site-header {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 
   .site-header__title {
     width: 100%;
@@ -26,7 +26,7 @@
         }
 
         &[data-position='2'] {
-          color: #00bd8d;
+          color: #86C232;
         }
       }
     }
@@ -40,5 +40,20 @@
       font-size: 30px;
       color: white;
     }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .logo-content__photo {
+    height: 60px !important;
+    width: 60px !important;
+  }
+
+  .logo-content__text {
+    font-size: 22px !important;
+  }
+
+  .site-info__score {
+    font-size: 22px !important;
   }
 }
