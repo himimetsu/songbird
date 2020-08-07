@@ -1,12 +1,12 @@
 .answers-wrapper {
-  height: 100%;
+  height: 325px;
   border-radius: 10px;
   background-color: #474B4F;
   border: 2px solid whitesmoke;
   box-sizing: border-box;
 
   .answers-wrapper__list {
-    height: 302px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     padding: 0;
