@@ -15,6 +15,14 @@ const ReactPlayer = ({ type, selectedBird, currentSection, currentId, birdsData,
     changeForcedPause(false);
   }, [forcedPause]);
 
+  useEffect(() => {
+    if (currentId > -1 && type === 'issue') {
+      console.log('Правильный ответ:', birdsData[currentSection][currentId].name);
+      const audioSrc = birdsData[currentSection][currentId].audio;
+      refPlayer.current.audio.current.src = audioSrc;
+    }
+  }, [currentSection, currentId]);
+
   return (
     <div className='audio-player' data-type={type}>
       <AudioPlayer
