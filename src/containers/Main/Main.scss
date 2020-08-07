@@ -16,10 +16,11 @@
   }
 
   .site-main__description {
+    min-height: 325px;
+    height: min-content;
     max-width: 50%;
     flex: auto;
     margin-left: 5px;
-    max-height: 350px;
   }
 
   .game-btn {
