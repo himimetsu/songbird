@@ -1,4 +1,13 @@
 body {
   min-height: 100vh;
   margin: 0;
+  font-family: 'OpenSans-SemiBold', sans-serif;
+}
+
+@font-face {
+  font-family: "OpenSans-SemiBold";
+
+  src: url('./assets/fonts/OpenSans-Regular.woff2') format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
