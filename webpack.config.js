@@ -51,6 +51,18 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(woff|woff2|ttf|otf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/fonts',
+            },
+          },
+        ],
+      },
     ]
   },
   resolve: {
