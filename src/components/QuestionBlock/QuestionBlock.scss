@@ -21,8 +21,14 @@
     }
   }
 
+  &[data-type=issue] {
+    .player-wrapper__content {
+      height: auto !important;
+    }
+  }
+
   .player-wrapper__content {
-    height: 155px;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -61,6 +67,7 @@
     @media only screen and (max-width: 1006px) {
       .player-wrapper__photo {
         width: 100% !important;
+        margin-right: 0 !important;
         text-align: center;
       }
 
