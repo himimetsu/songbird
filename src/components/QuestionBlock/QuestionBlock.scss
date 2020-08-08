@@ -1,0 +1,96 @@
+.player-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  // align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #474B4F;
+  border: 2px solid whitesmoke;
+  box-sizing: border-box;
+  color: #efedef;
+
+  .player-wrapper__photo {
+    height: 155px;
+    width: 200px;
+    margin-right: 20px;
+
+    .player-wrapper__img {
+      height: 155px;
+      width: 200px;
+      border-radius: 10px;
+    }
+  }
+
+  &[data-type=issue] {
+    .player-wrapper__content {
+      height: auto !important;
+    }
+  }
+
+  .player-wrapper__content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    color: white;
+
+    .content-info__name {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 35px;
+      border-bottom: 1px solid white;
+    }
+
+    .content-info__latin {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      border-bottom: 1px solid white;
+    }
+
+    .content-info__audioplayer {
+      width: 100%;
+    }
+  }
+
+  .player-wrapper__description {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 17px;
+    text-align: justify;
+  }
+
+  &[data-type=description] {
+    @media only screen and (max-width: 1006px) {
+      .player-wrapper__photo {
+        width: 100% !important;
+        margin-right: 0 !important;
+        text-align: center;
+      }
+
+      .content-info__name {
+        justify-content: center;
+      }
+
+      .content-info__latin {
+        justify-content: center;
+      }
+    }
+  }
+
+    &[data-type=issue] {
+    @media only screen and (max-width: 768px) {
+      .player-wrapper__photo {
+        width: 100% !important;
+        text-align: center;
+      }
+
+      .content-info__name {
+        justify-content: center;
+      }
+    }
+  }
+}

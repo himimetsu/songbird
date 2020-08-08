@@ -1,0 +1,81 @@
+.site-main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+  .site-main__issue {
+    max-height: 200px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .site-main__answers {
+    max-width: 50%;
+    flex: auto;
+    margin-right: 5px;
+  }
+
+  .site-main__description {
+    min-height: 325px;
+    height: min-content;
+    max-width: 50%;
+    flex: auto;
+    margin-left: 5px;
+  }
+
+  .game-btn {
+    max-height: 40px;
+    margin-top: 5px;
+    padding: 5px 0;
+    background-color: #86C232;
+    color: white;
+    font-size: 18px;
+    border-width: 0;
+    border-radius: 10px;
+    border: 2px solid whitesmoke !important;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #6ca31f;
+    }
+
+    &[disabled] {
+      background-color: #374785;
+      cursor: auto;
+
+      &:hover {
+        background-color: #2d3e81;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .site-main__issue {
+    max-height: none !important;
+  }
+
+  .site-main__answers {
+    max-width: 100% !important;
+    margin-bottom: 10px !important;
+    margin-right: 0 !important;
+  }
+
+  .site-main__description {
+    max-height: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .default-text {
+    width: 100%;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .resultsbtn {
+    font-size: 17px !important;
+  }
+}
